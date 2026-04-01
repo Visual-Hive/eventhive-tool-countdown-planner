@@ -1,0 +1,118 @@
+{
+    "slug": "event-countdown-planner",
+    "name": "Event Countdown Task Generator",
+    "version": "2.0.0",
+    "description": "Generate a complete reverse-timeline task plan from T-16 weeks to post-event. Click any task to edit title, description, notes, and next actions in a slide-out panel. Add, delete, or reorder tasks manually. Export your plan as a reusable template (JSON) or import a saved template. Push tasks directly to an Ops Tracker deployment. Erleah chat is built in — ask her to adjust your plan by name.",
+    "category": "planning",
+    "difficulty": "beginner",
+    "requires_backend": true,
+    "data_space": "event-operations",
+    "is_published": true,
+    "author": "Visual Hive",
+    "source_repo": "https://github.com/Visual-Hive/eventhive-tool-countdown-planner",
+    "tool_file": "tool.html",
+    "thumbnail": "thumbnail.png",
+    "config_schema": {
+        "sections": [
+            {
+                "id": "branding",
+                "title": "Branding",
+                "description": "Customise to match your company or event brand.",
+                "fields": [
+                    {
+                        "id": "companyName",
+                        "type": "text",
+                        "label": "Company / Organisation Name",
+                        "placeholder": "e.g. Momentum Events",
+                        "required": true,
+                        "default": "My Conference"
+                    },
+                    {
+                        "id": "primaryColor",
+                        "type": "color",
+                        "label": "Primary Brand Colour",
+                        "default": "#2563eb"
+                    },
+                    {
+                        "id": "logoUrl",
+                        "type": "url",
+                        "label": "Logo URL",
+                        "description": "Optional. Displayed in the header.",
+                        "required": false
+                    }
+                ]
+            },
+            {
+                "id": "event_details",
+                "title": "Event Details",
+                "description": "These values pre-fill the event setup form. Users can override them in the tool.",
+                "fields": [
+                    {
+                        "id": "eventName",
+                        "type": "text",
+                        "label": "Event Name",
+                        "placeholder": "e.g. TechConf Europe 2026",
+                        "required": true,
+                        "default": "Conference 2026"
+                    },
+                    {
+                        "id": "eventDate",
+                        "type": "text",
+                        "label": "Event Date",
+                        "placeholder": "YYYY-MM-DD",
+                        "description": "Used to calculate week offsets. Format: YYYY-MM-DD",
+                        "required": true,
+                        "default": "2026-06-15"
+                    }
+                ]
+            },
+            {
+                "id": "defaults",
+                "title": "Defaults",
+                "fields": [
+                    {
+                        "id": "defaultEventType",
+                        "type": "select",
+                        "label": "Default Event Type",
+                        "options": [
+                            {
+                                "label": "Conference",
+                                "value": "conference"
+                            },
+                            {
+                                "label": "Tradeshow / Exhibition",
+                                "value": "tradeshow"
+                            },
+                            {
+                                "label": "Gala / Awards",
+                                "value": "gala"
+                            },
+                            {
+                                "label": "Hybrid Event",
+                                "value": "hybrid"
+                            }
+                        ],
+                        "default": "conference"
+                    },
+                    {
+                        "id": "defaultAttendees",
+                        "type": "number",
+                        "label": "Default Attendee Count",
+                        "min": 10,
+                        "max": 100000,
+                        "default": 500
+                    }
+                ]
+            }
+        ]
+    },
+    "default_config": {
+        "companyName": "My Conference",
+        "primaryColor": "#2563eb",
+        "logoUrl": "",
+        "eventName": "Conference 2026",
+        "eventDate": "2026-06-15",
+        "defaultEventType": "conference",
+        "defaultAttendees": 500
+    }
+}
